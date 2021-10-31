@@ -42,4 +42,10 @@
 \tikzstyle{process} = [rectangle, minimum width=1cm, minimum height=1cm, text width=3cm, text centered, draw=black]
 \tikzstyle{arrow} = [thick,->,>=stealth]
 
+%tree 設定
 \usepackage{forest}
+\forestset{
+    default preamble={
+    for tree={circle, minimum size=0.9cm, draw, s sep=0.1cm}
+    }
+}
