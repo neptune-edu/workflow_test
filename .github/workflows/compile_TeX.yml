@@ -12,5 +12,16 @@ jobs:
         with:
           root_file: main.tex
           latexmk_use_xelatex: true
-          extra_fonts: |
-            Fonts/*.otf
+          extra_fonts: Fonts/*.otf
+          
+      - name: Create directory for pdf files
+        run: |
+          mkdir pdf
+          scp -r main.pdf pdf
+      - name: Commit and Push file
+        run: |
+          git config user.name eltonyeh
+          git config user.email eltonyeh1030@gmail.com
+          git add pdf
+          git commit -m "Actions: add pdf file"
+          git push
