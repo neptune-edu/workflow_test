@@ -10,9 +10,9 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: main.tex
+          root_file: test.tex
           latexmk_use_xelatex: true
-          extra_fonts: Fonts/*.otf
+          extra_fonts: Fonts/*
           
       - name: Create directory for pdf files
         run: |
