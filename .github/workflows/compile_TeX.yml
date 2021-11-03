@@ -1,5 +1,5 @@
 name: Compile TeX files to pdf
-on: [create]
+on: [push]
 jobs:
   build_latex:
     runs-on: ubuntu-latest
