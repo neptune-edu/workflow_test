@@ -16,7 +16,7 @@ jobs:
           
       - name: Create directory for pdf files
         run: |
-          mkdir pdf
+          mkdir -p pdf
           scp -r main.pdf pdf
       - name: Commit and Push file
         run: |
