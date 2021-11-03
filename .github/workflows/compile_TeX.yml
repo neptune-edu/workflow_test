@@ -10,7 +10,7 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: *.tex
+          root_file: **/*.tex
           latexmk_use_xelatex: true
           extra_fonts: Fonts/*
           
