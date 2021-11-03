@@ -20,6 +20,8 @@ jobs:
           scp -r main.pdf pdf
       - name: Commit and Push file
         run: |
+          git config user.name "cosmsstar"
+          git config user.email "cosmsstar@gmail.com"
           git add pdf
           git commit -m "Actions: add pdf file"
           git push
