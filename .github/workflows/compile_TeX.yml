@@ -17,7 +17,7 @@ jobs:
       - name: Create directory for pdf files
         run: |
           mkdir -p pdf
-          scp -r main.pdf pdf
+          scp -r *.pdf pdf
       - name: Commit and Push file
         run: |
           git config user.name "cosmsstar"
