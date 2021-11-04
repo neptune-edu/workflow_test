@@ -1,5 +1,5 @@
 name: Compile TeX files to pdf
-on: [push]
+on: workflow_dispatch
 jobs:
   build_latex:
     runs-on: ubuntu-latest
@@ -7,10 +7,20 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
         
+      - name: Collect all tex file
+        run: |
+          GLOBIGNORE="Output/*"
+          shopt -s globstar
+          mkdir -p tex
+          for file in **/*.tex
+          do
+            scp -r $file tex
+          done
+        
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: "**/*.tex"
+          root_file: "tex/*.tex"
           glob_root_file: true
           latexmk_use_xelatex: true
           extra_fonts: Fonts/*
@@ -18,7 +28,9 @@ jobs:
       - name: Create directory for pdf files
         run: |
           mkdir -p pdf
+          rm pdf/*.pdf
           scp -r *.pdf pdf
+          
       - name: Commit and Push file
         run: |
           git config user.name "cosmsstar"
