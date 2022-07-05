@@ -24,6 +24,6 @@ jobs:
           -H 'Accept: application/vnd.github.v4.raw' \
           -O -L https://api.github.com/repos/cosmsstar/templates/contents/answer.cls \
           -O -L https://api.github.com/repos/cosmsstar/templates/contents/question.cls \
-          -O -L https://api.github.com/repos/cosmsstar/templates/contents/pyp_base.cls
+          -O -L https://api.github.com/repos/cosmsstar/templates/contents/pyp_base.cls \
           -O -L https://api.github.com/repos/cosmsstar/templates/contents/fonts
           ls
