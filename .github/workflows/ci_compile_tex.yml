@@ -30,8 +30,8 @@ jobs:
         with:
           root_file: steps.changed-files.outputs.all_changed_files
           extra_fonts: |
-            ./fonts/*.ttf
-            ./fonts/*.otf
+            fonts/*.ttf
+            fonts/*.otf
           latexmk_use_xelatex: true
         env:
           TEXINPUTS: "./"
