@@ -29,6 +29,7 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: steps.changed-files.outputs.all_changed_files
+          pre_compile: ls
           extra_fonts: |
             fonts/*.ttf
             fonts/*.otf
