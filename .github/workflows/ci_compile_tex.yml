@@ -22,7 +22,7 @@ jobs:
 #           FILES=$(echo $FILES | tr " " "\n")
 #           echo "FILES="$FILES"" >> $GITHUB_ENV
 #           echo -e "$FILES"
-        run: echo -e ${{ steps.changed-files.outputs.all_changed_and_modified_files }}
+        run: echo "${{ steps.changed-files.outputs.all_changed_and_modified_files }}"
       
 #     outputs:
 #       changedTexFiles: ${{ env.FILES }}
