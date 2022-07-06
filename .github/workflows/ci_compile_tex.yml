@@ -16,12 +16,7 @@ jobs:
           files: |
             **/*.tex
       
-      - name: Process files as multi-line string
-#         run: |
-#           FILES="${{ steps.changed-files.outputs.all_changed_and_modified_files }}"
-#           FILES=$(echo $FILES | tr " " "\n")
-#           echo "FILES="$FILES"" >> $GITHUB_ENV
-#           echo -e "$FILES"
+      - name: Print out changed files
         run: echo "${{ steps.changed-files.outputs.all_changed_and_modified_files }}"
       
     outputs:
@@ -41,9 +36,7 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: ${{ needs.get_changed_files.outputs.changedTexFiles }}
-          extra_fonts: |
-            ./fonts/*.ttf
-            ./fonts/*.otf
+          extra_fonts: ./fonts/*
           latexmk_use_xelatex: true
         env:
           TEXINPUTS: "./"
