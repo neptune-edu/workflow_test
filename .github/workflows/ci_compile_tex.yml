@@ -36,6 +36,7 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: ${{ needs.get_changed_files.outputs.changedTexFiles }}
+          work_in_root_file_dir: true
           extra_fonts: ./fonts/*
           latexmk_use_xelatex: true
         env:
