@@ -8,6 +8,18 @@ jobs:
         with:
           fetch-depth: 0
       
+      - name: Get templates and fonts from cosmsstar/templates
+        run: |
+          curl -H 'Authorization: token ${{ secrets.SECRET_TOKEN }}' \
+          -H 'Accept: application/vnd.github.v4.raw' \
+          -O -L https://api.github.com/repos/cosmsstar/templates/contents/answer.cls \
+          -O -L https://api.github.com/repos/cosmsstar/templates/contents/question.cls \
+          -O -L https://api.github.com/repos/cosmsstar/templates/contents/pyp_base.cls \
+          -O -L https://api.github.com/repos/cosmsstar/templates/contents/fonts
+          ls
+          cd fonts
+          ls
+      
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v23.1
@@ -20,16 +32,9 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: steps.changed-files.outputs.all_changed_files
-          pre_compile: |
-            curl -H 'Authorization: token ${{ secrets.SECRET_TOKEN }}' \
-            -H 'Accept: application/vnd.github.v4.raw' \
-            -O -L https://api.github.com/repos/cosmsstar/templates/contents/answer.cls \
-            -O -L https://api.github.com/repos/cosmsstar/templates/contents/question.cls \
-            -O -L https://api.github.com/repos/cosmsstar/templates/contents/pyp_base.cls \
-            -O -L https://api.github.com/repos/cosmsstar/templates/contents/fonts
-#           extra_fonts: |
-#             ./fonts/*.ttf
-#             ./fonts/*.otf
+          extra_fonts: |
+            ./fonts/*.ttf
+            ./fonts/*.otf
           latexmk_use_xelatex: true
         env:
           TEXINPUTS: "./"
