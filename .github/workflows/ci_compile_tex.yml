@@ -17,6 +17,7 @@ jobs:
             
       - name: Compile changed LaTeX files
         id: compile_tex
+        if: "${{ steps.changed-files.outputs.all_changed_files != '' }}"
         uses: xu-cheng/latex-action@v2
         with:
           root_file: ${{ steps.changed-files.outputs.all_changed_files }}
