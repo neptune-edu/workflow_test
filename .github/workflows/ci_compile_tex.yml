@@ -19,7 +19,7 @@ jobs:
         run: |
           FILES="${{ steps.changed-files.outputs.all_changed_and_modified_files }}"
           FILES=$(echo $FILES | tr " " "\n")
-          echo "FILES=$FILES" >> $GITHUB_ENV
+          echo "FILES="$FILES"" >> $GITHUB_ENV
           echo -e "${{ env.FILES }}"
       
     outputs:
