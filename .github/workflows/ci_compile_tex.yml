@@ -18,6 +18,7 @@ jobs:
       - name: Process files as multi-line string
         run: |
           sed 's/\s\+/\n/g' ${{ steps.changed-files.outputs.all_changed_and_modified_files }} -i
+          echo ${{ steps.changed-files.outputs.all_changed_and_modified_files }}
       
     outputs:
       changedTexFiles: ${{ steps.changed-files.outputs.all_changed_and_modified_files }}
