@@ -19,7 +19,7 @@ jobs:
         id: compile_tex
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: steps.changed-files.outputs.all_changed_files
+          root_file: ${{ steps.changed-files.outputs.all_changed_files }}
           extra_fonts: |
             ./fonts/*.ttf
             ./fonts/*.otf
