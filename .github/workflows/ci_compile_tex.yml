@@ -17,8 +17,8 @@ jobs:
       
       - name: Process files as multi-line string
         run: |
-          FILES = $(( "${{ steps.changed-files.outputs.all_changed_and_modified_files }}" | tr " " "\n" ))
-          echo -e FILES
+          FILES = `"${{ steps.changed-files.outputs.all_changed_and_modified_files }}" | tr " " "\n"`
+          echo -e "${FILES}"
             
 #         run: |
 #           echo FILES="${{ steps.changed-files.outputs.all_changed_and_modified_files }}" | tr " " "\n" >> $GITHUB_ENV
