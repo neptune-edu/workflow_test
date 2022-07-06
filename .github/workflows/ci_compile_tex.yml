@@ -27,9 +27,9 @@ jobs:
             -O -L https://api.github.com/repos/cosmsstar/templates/contents/question.cls \
             -O -L https://api.github.com/repos/cosmsstar/templates/contents/pyp_base.cls \
             -O -L https://api.github.com/repos/cosmsstar/templates/contents/fonts
-          extra_fonts: |
-            **/fonts/*.ttf
-            **/fonts/*.otf
+#           extra_fonts: |
+#             ./fonts/*.ttf
+#             ./fonts/*.otf
           latexmk_use_xelatex: true
         env:
           TEXINPUTS: "./"
