@@ -19,14 +19,11 @@ jobs:
         run: |
           FILES="${{ steps.changed-files.outputs.all_changed_and_modified_files }}"
           FILES=$(echo $FILES | tr " " "\n")
-          echo -e "$FILES"
-            
-#         run: |
-#           echo FILES="${{ steps.changed-files.outputs.all_changed_and_modified_files }}" | tr " " "\n" >> $GITHUB_ENV
-#           echo -e "${FILES}"
+          echo FILES="$FILES" >> $GITHUB_ENV
+          echo -e "${{ env.FILES }}"
       
-#     outputs:
-#       changedTexFiles: ${{ env.FILES }}
+    outputs:
+      changedTexFiles: ${{ env.FILES }}
             
 #   compile_new_tex_files:
 #     runs-on: ubuntu-latest
