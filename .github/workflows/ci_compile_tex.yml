@@ -17,11 +17,13 @@ jobs:
       
       - name: Process files as multi-line string
         run: |
-          sed 's/\s\+/\n/g' ${{ steps.changed-files.outputs.all_changed_and_modified_files }} -i
-          echo ${{ steps.changed-files.outputs.all_changed_and_modified_files }}
+          FILES = ${{ steps.changed-files.outputs.all_changed_and_modified_files }}
+          FILES = ${FILES// /\n}
+          echo FILES = ${FILES} >> $GITHUB_ENV
+          echo FILES
       
     outputs:
-      changedTexFiles: ${{ steps.changed-files.outputs.all_changed_and_modified_files }}
+      changedTexFiles: ${{ env.FILES }}
             
 #   compile_new_tex_files:
 #     runs-on: ubuntu-latest
