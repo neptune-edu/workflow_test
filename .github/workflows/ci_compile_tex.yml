@@ -17,11 +17,14 @@ jobs:
       
       - name: Process files as multi-line string
         run: |
-          echo FILES="${{ steps.changed-files.outputs.all_changed_and_modified_files }}" | tr " " "\n" >> $GITHUB_ENV
-          echo -e "${FILES}"
+          echo -e "${{ steps.changed-files.outputs.all_changed_and_modified_files }}" | tr " " "\n"
+            
+#         run: |
+#           echo FILES="${{ steps.changed-files.outputs.all_changed_and_modified_files }}" | tr " " "\n" >> $GITHUB_ENV
+#           echo -e "${FILES}"
       
-    outputs:
-      changedTexFiles: ${{ env.FILES }}
+#     outputs:
+#       changedTexFiles: ${{ env.FILES }}
             
 #   compile_new_tex_files:
 #     runs-on: ubuntu-latest
