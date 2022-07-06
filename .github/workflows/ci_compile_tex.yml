@@ -17,8 +17,7 @@ jobs:
           -O -L https://api.github.com/repos/cosmsstar/templates/contents/pyp_base.cls \
           -O -L https://api.github.com/repos/cosmsstar/templates/contents/fonts
           ls
-          cd fonts
-          ls
+          cat answer.cls
       
       - name: Get changed files
         id: changed-files
