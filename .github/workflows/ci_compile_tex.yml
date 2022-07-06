@@ -27,14 +27,14 @@ jobs:
           files: |
             **/*.tex
             
-      - name: Compile changed LaTeX files
-        id: compile_tex
-        uses: xu-cheng/latex-action@v2
-        with:
-          root_file: steps.changed-files.outputs.all_changed_files
-          extra_fonts: |
-            ./fonts/*.ttf
-            ./fonts/*.otf
-          latexmk_use_xelatex: true
-        env:
-          TEXINPUTS: "./"
+#       - name: Compile changed LaTeX files
+#         id: compile_tex
+#         uses: xu-cheng/latex-action@v2
+#         with:
+#           root_file: steps.changed-files.outputs.all_changed_files
+#           extra_fonts: |
+#             ./fonts/*.ttf
+#             ./fonts/*.otf
+#           latexmk_use_xelatex: true
+#         env:
+#           TEXINPUTS: "./"
