@@ -40,3 +40,5 @@ jobs:
           pre_compile: "tlmgr install xifthen"
           extra_fonts: ./fonts/*
           latexmk_use_xelatex: true
+        env:
+          TEXINPUTS: ".:/github/workspace/:"
